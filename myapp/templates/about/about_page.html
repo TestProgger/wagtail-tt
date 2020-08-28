@@ -1,0 +1,30 @@
+{%extends 'base.html'%}
+
+{%load wagtailimages_tags%}
+{%load wagtailcore_tags  %}
+
+{%load static%}
+
+{%block content %}
+    <div class="jumbotron mt-1">
+        <div class="lead" style="text-align: center;">
+            <h1> {{ page.banner_header }} </h1>
+            <h2>{{ page.banner_content|richtext }}</h2>
+        </div>
+    </div>
+
+    <div class="container">
+
+        {% for block in page.content %}
+            {% include_block block %}
+        {% endfor %}
+
+    
+    </div>
+
+{% endblock %}
+
+{%block extra_css%}
+	<link rel="stylesheet" href="https://bootswatch.com/4/sketchy/bootstrap.min.css">
+	<link rel="stylesheet" href="{% static 'css/myapp.css' %}">
+{%endblock%}

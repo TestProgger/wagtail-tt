@@ -1,0 +1,33 @@
+{%load wagtailimages_tags %}
+<div class="header text-center">
+    <h1 class="display-3"> {{ self.employees_title }} </h1>
+</div>
+
+<div class="row">
+
+    {% for worker in self.cards %}
+
+    
+
+    <div class="card  text-white {{ worker.background_type }} mb-5 mt-5 col-md-5 col-sm-5 col-lg-5 col-xs-12">
+            <h3 class="card-header">{{ worker.post }}</h3>
+
+            <div class="card-body text-center">
+                <h3 class="card-title">{{worker.full_name}}</h3>
+            </div>
+
+            {%image worker.image height-300 as img%}
+            <img src="{{ img.url }}" alt="Card image">
+            <div class="card-body">
+                <p class="card-text">{{ worker.desription }}</p>
+            </div>
+    </div>
+
+    {% if forloop.counter|divisibleby:"2" %}
+    {%else%}
+        <div class="col-md-2 col-sm-2"></div>
+    {%endif%}
+
+    {%endfor%}
+
+</div>

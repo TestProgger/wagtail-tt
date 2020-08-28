@@ -1,0 +1,6 @@
+.banner {
+  height: 40vh;
+  min-height: 400px;
+  background-size: cover;
+  background-position: center center;
+}
